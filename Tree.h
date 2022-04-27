@@ -11,6 +11,7 @@ class Tree {
         void display(Tree*);
         void newDisplay(string, Tree*, bool);
         Tree* delNode(Tree*, int);
+        bool search(Tree*, int);
 
     private:
         int value;

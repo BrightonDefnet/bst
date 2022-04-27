@@ -73,3 +73,19 @@ Tree* Tree::delNode(Tree* root, int val) {
     }
     return root;
 }
+
+///search for a given number
+bool Tree::search(Tree* root, int val) {
+    if(root == NULL) {
+        return false;
+    }
+    if(root->value == val) {
+        return true;
+    }
+    //search left subtree
+    bool left = search(root->left, val);
+    if(left) return true;
+    //search right subtree
+    bool right = search(root->right, val);
+    return right;
+}

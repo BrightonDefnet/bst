@@ -19,9 +19,20 @@ int main() {
     t.insert(root, 9);
     t.insert(root, 11);
 
+    //display tree
     cout << "original:" << endl;
     t.newDisplay("", root, false);
-    cout << "\n after deleting:" << endl;
+
+    //search for 2
+    bool b = t.search(root, 2);
+    cout << (b ? "contained" : "not contained") << endl;
+
+    //delete 2
     root = t.delNode(root, 2);
+    cout << "\n after deleting:" << endl;
     t.newDisplay("", root, false);
+
+    //search for 2
+    b = t.search(root, 2);
+    cout << (b ? "contained" : "not contained") << endl;
 }

@@ -32,6 +32,18 @@ void Tree::display(Tree* root) {
     display(root->right);
 }
 
+///new display function, used a post on StackOverflow for help
+void Tree::newDisplay(string prefix, Tree* t, bool isLeft) {
+    if(t != NULL) {
+        cout << prefix;
+        cout << (isLeft ? "├──" : "└──" );
+        cout << t->value << endl;
+        //enter next tree level
+        newDisplay(prefix + (isLeft ? "│   " : "    "), t->left, true);
+        newDisplay(prefix + (isLeft ? "│   " : "    "), t->right, false);
+    }
+}
+
 ///delete a node
 Tree* Tree::delNode(Tree* root, int val) {
     if(root == NULL) { //null
@@ -44,11 +56,11 @@ Tree* Tree::delNode(Tree* root, int val) {
     } else { //if equal to root
         if(root->left == NULL && root->right == NULL) { //node has no child
             return NULL;
-        } else if(root->left == NULL) { //node has one (left) child
+        } else if(root->left == NULL) { //node has one (right) child
             Tree* temp = root->right;
             delete root;
             return temp;
-        } else if(root->right == NULL) { //node has one (right) child
+        } else if(root->right == NULL) { //node has one (left) child
             Tree* temp = root->left;
             delete root;
             return temp;

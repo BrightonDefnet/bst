@@ -9,6 +9,7 @@ class Tree {
         Tree(int);
         Tree* insert(Tree*, int);
         void display(Tree*);
+        void newDisplay(string, Tree*, bool);
         Tree* delNode(Tree*, int);
 
     private:

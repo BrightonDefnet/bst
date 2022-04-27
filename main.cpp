@@ -17,4 +17,6 @@ int main() {
     t.insert(root, 57);
     t.insert(root, 1);
     t.display(root);
+    root = t.delNode(root, 10);
+    t.display(root);
 }
